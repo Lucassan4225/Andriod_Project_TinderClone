@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -91,9 +91,9 @@
         android:layout_marginTop="16dp"
         android:text="Trouble logging in?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintEnd_toEndOf="@+id/btnPhone"
+        app:layout_constraintStart_toStartOf="@+id/btnPhone"
+        app:layout_constraintTop_toBottomOf="@+id/btnPhone" />
 
     <TextView
         android:id="@+id/textView4"
