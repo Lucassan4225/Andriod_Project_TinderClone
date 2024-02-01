@@ -4,25 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEFEFE"
-    android:backgroundTint="#FEFEFE"
-    tools:context=".NameSetUpActivity">
-
-    <Button
-        android:id="@+id/btnNext2"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#D7E1E6"
-        android:text="Next"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="650dp" />
+    android:background="#FFFFFF"
+    tools:context=".BDayActivity">
 
     <TextView
         android:id="@+id/tvGenderQ"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="What's your first name?"
+        android:text="Your b-day?"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,30 +31,30 @@
         tools:layout_editor_absoluteY="31dp" />
 
     <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="350dp"
+        android:id="@+id/editTextDate"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:text="Name"
+        android:inputType="date"
         tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="198dp" />
+        tools:layout_editor_absoluteY="174dp"
+        tools:text="M   M   /   D   D   /   Y   Y   Y   Y " />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is how it'll appear on your profile."
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="245dp" />
+        android:text="Your profile shows your age, not birth date."
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="231dp" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:text="Can't change it later."
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="264dp" />
-
+        android:backgroundTint="#D7E1E6"
+        android:text="Next"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="650dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.latenightrunners
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.latenightrunners.databinding.ActivityNameSetUpBinding
@@ -10,6 +11,11 @@ class NameSetUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
+
+        view.btnNext2.setOnClickListener {
+            val intent = Intent(this,BDayActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
