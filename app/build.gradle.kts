@@ -7,6 +7,9 @@ android {
     namespace = "com.example.latenightrunners"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.latenightrunners"
         minSdk = 26
