@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
-        view.btnPhone.setOnClickListener {
+        view.btnLoginPh {
             val intent = Intent(this,GenderActivity::class.java)
             startActivity(intent)
         }

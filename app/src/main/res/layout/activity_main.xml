@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.559" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLoginLn"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -49,40 +49,40 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnLoginGg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:text="LOG IN WITH GOOGLE"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginLn"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginLn"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginLn" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnLoginFb"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:text="LOG IN WITH FACEBOOK"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginGg"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginGg"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginGg" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnLoginPh"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:text="LOG IN WITH PHONE NUMBER"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginFb"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginFb"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFb" />
 
     <TextView
         android:id="@+id/textView3"
@@ -91,9 +91,9 @@
         android:layout_marginTop="16dp"
         android:text="Trouble logging in?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginPh"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginPh"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginPh" />
 
     <TextView
         android:id="@+id/textView4"
