@@ -8,7 +8,7 @@
     tools:context=".GenderActivity">
 
     <TextView
-        android:id="@+id/tvGenderQ"
+        android:id="@+id/tvPhNum"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="What's your gender?"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGenderQ"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhNum"
         app:layout_constraintVertical_bias="0.098"
         app:strokeColor="#C3C9CB"
         app:strokeWidth="2dp" />
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.698" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnLogGg"
         android:layout_width="280sp"
         android:layout_height="wrap_content"
         android:backgroundTint="#E6EBEE"
@@ -87,7 +87,7 @@
         android:layout_width="44dp"
         android:layout_height="45dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/tvGenderQ"
+        app:layout_constraintBottom_toTopOf="@+id/tvPhNum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"

@@ -16,7 +16,7 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.193" />
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.559" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogLn"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -49,40 +49,43 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnLogGg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:text="LOG IN WITH GOOGLE"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLogLn"
+        app:layout_constraintStart_toStartOf="@+id/btnLogLn"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogLn" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnLogFb"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
+        android:backgroundTintMode="add"
+
         android:text="LOG IN WITH FACEBOOK"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:iconTint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogGg"
+        app:layout_constraintStart_toStartOf="@+id/btnLogGg"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogGg" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnLogPh"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:text="LOG IN WITH PHONE NUMBER"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLogFb"
+        app:layout_constraintStart_toStartOf="@+id/btnLogFb"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogFb" />
 
     <TextView
         android:id="@+id/textView3"
@@ -91,9 +94,9 @@
         android:layout_marginTop="16dp"
         android:text="Trouble logging in?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLogPh"
+        app:layout_constraintStart_toStartOf="@+id/btnLogPh"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogPh" />
 
     <TextView
         android:id="@+id/textView4"
@@ -120,10 +123,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="67dp"
-        android:layout_height="59dp"
+        android:layout_width="38dp"
+        android:layout_height="41dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@drawable/tinder" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
