@@ -13,12 +13,6 @@
         android:theme="@style/Theme.LateNightRunners"
         tools:targetApi="31">
         <activity
-            android:name=".pin_confirm"
-            android:exported="false" />
-        <activity
-            android:name=".Phone_num_input"
-            android:exported="false" />
-        <activity
             android:name=".GenderInterestActivity"
             android:exported="false" />
         <activity

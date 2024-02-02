@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".BDayActivity">
+
+    <TextView
+        android:id="@+id/tvGenderQ"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Your b-day?"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.149" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
+        app:srcCompat="@drawable/baseline_arrow_back_24"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="174dp"
+        tools:text="M   M   /   D   D   /   Y   Y   Y   Y " />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your profile shows your age, not birth date."
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D7E1E6"
+        android:text="Next"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="650dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
