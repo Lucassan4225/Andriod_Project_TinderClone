@@ -65,10 +65,10 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnGMen"
-        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="@+id/btnGMen"
         app:layout_constraintTop_toBottomOf="@+id/btnGMen"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.63" />
 
     <Button
         android:id="@+id/btnLogGg"
@@ -78,9 +78,10 @@
         android:text="Next"
         android:textColor="#7D8694"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbGender"
-        app:layout_constraintVertical_bias="0.428"
-        tools:layout_editor_absoluteX="61dp" />
+        app:layout_constraintVertical_bias="0.428" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -89,10 +90,10 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/tvPhNum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472"
+        app:layout_constraintVertical_bias="0.266"
         app:srcCompat="@drawable/baseline_arrow_back_24" />
 
     <ProgressBar
@@ -100,7 +101,11 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10sp"
-        tools:layout_editor_absoluteX="-168dp"
-        tools:layout_editor_absoluteY="3dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvPhNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

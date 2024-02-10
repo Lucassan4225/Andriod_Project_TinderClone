@@ -16,37 +16,48 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="44dp"
-        android:layout_height="45dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="#FFFFFF"
-        app:srcCompat="@drawable/baseline_arrow_back_24"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="31dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvGenderQ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="174dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenderQ"
+        app:layout_constraintVertical_bias="0.73"
         tools:text="M   M   /   D   D   /   Y   Y   Y   Y " />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="432dp"
         android:text="Your profile shows your age, not birth date."
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLoginPh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLoginPh"
@@ -55,6 +66,10 @@
         android:backgroundTint="#D7E1E6"
         android:text="Next"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="650dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenderQ"
+        app:layout_constraintVertical_bias="0.971" />
 </androidx.constraintlayout.widget.ConstraintLayout>

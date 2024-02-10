@@ -25,6 +25,12 @@
 
 
         <activity
+            android:name=".MainNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".swipeCardActivity"
+            android:exported="false" />
+        <activity
             android:name=".GenderInterestActivity"
             android:exported="false" />
         <activity
