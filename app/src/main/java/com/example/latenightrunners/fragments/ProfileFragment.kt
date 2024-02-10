@@ -1,22 +1,21 @@
 package com.example.latenightrunners.fragments
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.latenightrunners.databinding.FragmentBBinding
+import com.example.latenightrunners.databinding.ProfileFragmentBinding
 
-class FragmentB: Fragment() {
-    private lateinit var view: FragmentBBinding
+class ProfileFragment: Fragment() {
+    private lateinit var view: ProfileFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        view = FragmentBBinding.inflate(inflater,container,false)
+        view = ProfileFragmentBinding.inflate(inflater,container,false)
         return view.root
     }
 }

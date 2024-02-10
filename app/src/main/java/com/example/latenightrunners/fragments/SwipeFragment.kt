@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.latenightrunners.databinding.FragmentABinding
+import com.example.latenightrunners.databinding.SwipeFragmentBinding
 
-class FragmentA: Fragment() {
-    private lateinit var view: FragmentABinding
+class SwipeFragment: Fragment() {
+    private lateinit var view: SwipeFragmentBinding
 
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class FragmentA: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        view = FragmentABinding.inflate(inflater, container, false)
+        view = SwipeFragmentBinding.inflate(inflater, container, false)
 
         return view.root
     }
