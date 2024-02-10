@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view.root)
 
         view.btnLoginPh.setOnClickListener() {
-            val intent = Intent(this,GenderActivity::class.java)
+            val intent = Intent(this,Phone_num_input::class.java)
             startActivity(intent)
         }
     }
