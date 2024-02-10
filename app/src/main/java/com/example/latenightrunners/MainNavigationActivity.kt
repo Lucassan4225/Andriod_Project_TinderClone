@@ -3,11 +3,10 @@ package com.example.latenightrunners
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.latenightrunners.databinding.ActivityMainNavigationBinding
 import com.example.latenightrunners.fragments.FragmentA
 import com.example.latenightrunners.fragments.FragmentB
-import com.example.latenightrunners.fragments.FragmentC
+import com.example.latenightrunners.fragments.Profile
 
 class MainNavigationActivity : AppCompatActivity() {
     private val view: ActivityMainNavigationBinding by lazy{ ActivityMainNavigationBinding.inflate(layoutInflater)}
@@ -19,7 +18,7 @@ class MainNavigationActivity : AppCompatActivity() {
             when (it.itemId){
                 R.id.item_home -> changeFragment(FragmentA())
                 R.id.item_match->changeFragment(FragmentB())
-                R.id.item_profile->changeFragment(FragmentC())
+                R.id.item_profile->changeFragment(Profile())
                 else -> false
             }
         }

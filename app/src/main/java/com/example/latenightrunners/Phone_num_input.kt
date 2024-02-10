@@ -23,6 +23,9 @@ class Phone_num_input<PhoneAuthCredential : Any> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
+
+
+
 //        auth = Firebase.auth
 //
 //        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.latenightrunners.databinding.FragmentCBinding
 
-class FragmentC: Fragment() {
+class Profile: Fragment() {
     private lateinit var view: FragmentCBinding
 
     override fun onCreateView(
