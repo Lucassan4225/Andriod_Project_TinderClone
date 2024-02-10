@@ -1,7 +1,8 @@
 package com.example.latenightrunners
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.latenightrunners.databinding.ActivityBdayBinding
 
 class BDayActivity : AppCompatActivity() {
@@ -10,6 +11,10 @@ class BDayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
+        view.btnLoginPh.setOnClickListener {
+            val intent = Intent(this,MainNavigationActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
