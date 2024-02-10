@@ -62,18 +62,25 @@
         android:textColor="#393737"
         android:textColorHint="#393737"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="609dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnNext2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIMen"
+        app:layout_constraintVertical_bias="0.965" />
 
     <Button
         android:id="@+id/btnNext2"
         android:layout_width="280sp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="368dp"
         android:backgroundTint="#E6EBEE"
         android:text="Next"
         android:textColor="#7D8694"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIMen" />
 
     <ImageButton
         android:id="@+id/ibtnBack2"
@@ -83,10 +90,10 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/tvGenderInterestQ"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/baseline_arrow_back_24" />
 
     <ProgressBar
@@ -94,8 +101,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-3dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvGenderInterestQ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnIEveryone"
@@ -107,7 +118,7 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/cbGender"
         app:layout_constraintEnd_toEndOf="@+id/btnIMen"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnIMen"
         app:layout_constraintTop_toBottomOf="@+id/btnIMen"
         app:layout_constraintVertical_bias="0.0"
