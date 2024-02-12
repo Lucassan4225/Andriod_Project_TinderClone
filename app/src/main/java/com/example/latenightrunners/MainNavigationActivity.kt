@@ -1,18 +1,28 @@
 package com.example.latenightrunners
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.latenightrunners.databinding.ActivityMainNavigationBinding
-import com.example.latenightrunners.fragments.SwipeFragment
 import com.example.latenightrunners.fragments.MatchFragment
 import com.example.latenightrunners.fragments.ProfileFragment
+import com.example.latenightrunners.fragments.SwipeFragment
+import com.google.firebase.auth.FirebaseAuth
 
 class MainNavigationActivity : AppCompatActivity() {
     private val view: ActivityMainNavigationBinding by lazy{ ActivityMainNavigationBinding.inflate(layoutInflater)}
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
+
+        auth = FirebaseAuth.getInstance()
+
+        if (auth.currentUser == null) {
+            startActivity(Intent(this, PhoneInputActivity::class.java))
+            finish()
+        }
 
         view.bnvExample.setOnItemSelectedListener {
             when (it.itemId){
@@ -23,6 +33,7 @@ class MainNavigationActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun changeFragment(fragment: Fragment): Boolean{
         supportFragmentManager

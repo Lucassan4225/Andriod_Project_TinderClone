@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "909547512465",
+    "project_id": "latenightrunners-5669a",
+    "storage_bucket": "latenightrunners-5669a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909547512465:android:c9213d62fbbe80e5b81530",
+        "android_client_info": {
+          "package_name": "com.example.latenightrunners"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxUpl8eZF3SvESo0kKEZN6AP2UCRfQlyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

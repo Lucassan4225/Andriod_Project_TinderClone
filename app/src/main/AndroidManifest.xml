@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,21 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LateNightRunners"
         tools:targetApi="31">
-            <service
-                android:name=".java.MyFirebaseMessagingService"
-                android:exported="false">
-                <intent-filter>
-                    <action android:name="com.google.firebase.MESSAGING_EVENT" />
-                </intent-filter>
-            </service>
-
-
 
         <activity
-            android:name=".MainNavigationActivity"
+            android:name=".OTPActivity"
             android:exported="false" />
         <activity
-            android:name=".swipeCardActivity"
+            android:name=".PhoneInputActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainNavigationActivity"
             android:exported="false" />
         <activity
             android:name=".GenderInterestActivity"
@@ -37,7 +29,7 @@
             android:name=".GenderActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
