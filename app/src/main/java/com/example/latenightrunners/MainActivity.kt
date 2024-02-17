@@ -1,5 +1,6 @@
 package com.example.latenightrunners
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.latenightrunners.databinding.ActivityMainBinding
@@ -10,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
-//        view.btnLoginPh.setOnClickListener() {
-//            val intent = Intent(this,Phone_num_input::class.java)
-//            startActivity(intent)
-//        }
+        view.btnLoginPh.setOnClickListener() {
+            val intent = Intent(this,PhoneInputActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

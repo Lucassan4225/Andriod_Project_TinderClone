@@ -26,11 +26,7 @@ class OTPActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("Please Wait....")
-        builder.setTitle("Loading")
-        builder.setCancelable(false)
-        dialog = builder.create()
-        dialog.show()
+
 
         val phoneNumber = "+1"+intent.getStringExtra("number")
         val options = PhoneAuthOptions.newBuilder(auth)

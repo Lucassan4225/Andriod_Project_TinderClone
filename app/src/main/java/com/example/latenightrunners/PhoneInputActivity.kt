@@ -27,7 +27,7 @@ class PhoneInputActivity : AppCompatActivity() {
                 Toast.makeText(this,"Please enter your Number!!", Toast.LENGTH_SHORT).show()
             }else{
                 var intent = Intent(this,OTPActivity::class.java)
-                intent.putExtra("number",binding.etPhoneInput.text!!)
+                intent.putExtra("number",binding.etPhoneInput.text!!.toString())
                 startActivity(intent)
             }
         }
