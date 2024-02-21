@@ -72,6 +72,7 @@ package com.example.latenightrunners
 //    }
 //}
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -111,11 +112,18 @@ class OTPActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success
                     val user = task.result?.user
-                    // Proceed with your app logic
+                    // Proceed to NameSetUpActivity
+                    navigateToNameSetUpActivity()
                 } else {
                     // Sign in failed
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun navigateToNameSetUpActivity() {
+        val intent = Intent(this, NameSetUpActivity::class.java)
+        startActivity(intent)
+        finish() // Optional: finish the current activity if you don't want to go back to it
     }
 }
