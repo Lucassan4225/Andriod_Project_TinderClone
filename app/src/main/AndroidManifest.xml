@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LateNightRunners"
         tools:targetApi="31">
-
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".OTPActivity"
             android:exported="false" />
