@@ -11,13 +11,14 @@ class SwipeFragment: Fragment() {
     private lateinit var view: SwipeFragmentBinding
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         view = SwipeFragmentBinding.inflate(inflater, container, false)
 
         return view.root
+
+
     }
+
+
 }
