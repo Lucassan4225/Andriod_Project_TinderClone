@@ -59,6 +59,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.play:integrity:1.3.0")
     implementation("com.google.android.gms:play-services-safetynet:18.0.1")
+    implementation("com.github.yuyakaido:CardStackView:v2.3.4")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-database")
     implementation("com.github.bumptech.glide:glide:4.16.0")
