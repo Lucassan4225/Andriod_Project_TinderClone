@@ -1,8 +1,6 @@
 package com.example.latenightrunners
 
-import android.content.Intent
 //import android.os.Bundle
-import android.widget.Toast
 //import androidx.appcompat.app.AppCompatActivity
 //import com.example.latenightrunners.databinding.ActivityOtpactivityBinding
 //import com.google.firebase.FirebaseException
@@ -291,8 +289,10 @@ import android.widget.Toast
 //}
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.latenightrunners.databinding.ActivityOtpactivityBinding
 import com.google.firebase.FirebaseException
