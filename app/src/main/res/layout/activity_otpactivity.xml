@@ -51,22 +51,83 @@
         app:strokeWidth="1dp" />
 
     <EditText
-        android:id="@+id/etOTP"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/otpEditText6"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="numberSigned"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/otpEditText5"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/otpEditText2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/otpEditText3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/otpEditText1"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/otpEditText1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnResendCode"
-        app:layout_constraintVertical_bias="0.032" />
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/otpEditText5"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/otpEditText6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/otpEditText4"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/otpEditText4"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/otpEditText5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/otpEditText3"
+        tools:layout_editor_absoluteY="198dp" />
+
+
+    <EditText
+        android:id="@+id/otpEditText3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/otpEditText4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/otpEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/btnResendCode" />
 
     <Button
         android:id="@+id/btnOTPContinue"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="352dp"
         android:background="@drawable/tinder_button_grad_color"
         android:text="Continue"
         android:textColor="#000000"
@@ -75,23 +136,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etOTP"
-        app:layout_constraintVertical_bias="0.23" />
-
-<!--    <Button-->
-<!--        android:id="@+id/btnOTPContinue"-->
-<!--        android:layout_width="280dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/tinder_button_grad_color"-->
-<!--        android:text="Continue"-->
-<!--        android:textColor="#000000"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.496"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/etOTP"-->
-<!--        app:layout_constraintVertical_bias="0.23" />-->
-
+        app:layout_constraintTop_toBottomOf="@+id/btnResendCode"
+        app:layout_constraintVertical_bias="0.834" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
