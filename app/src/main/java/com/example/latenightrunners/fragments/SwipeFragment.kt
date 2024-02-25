@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.latenightrunners.adapter.DatingAdapter
 import com.example.latenightrunners.databinding.SwipeFragmentBinding
-import com.example.latenightrunners.model.UserModel
+import com.example.latenightrunners.firestore.UserModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

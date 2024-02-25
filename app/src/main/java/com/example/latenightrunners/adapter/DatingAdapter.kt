@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latenightrunners.databinding.ItemUserLayoutBinding
-import com.example.latenightrunners.model.UserModel
+import com.example.latenightrunners.firestore.UserModel
 
 class DatingAdapter(val context : Context, val list : ArrayList<UserModel>): RecyclerView.Adapter<DatingAdapter.DatingViewHolder>() {
     inner class DatingViewHolder(val binding: ItemUserLayoutBinding)

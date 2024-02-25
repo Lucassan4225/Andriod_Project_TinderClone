@@ -1,4 +1,4 @@
-package com.example.latenightrunners.model
+package com.example.latenightrunners.firestore
 
 data class UserModel(
     val number : String? = "",
