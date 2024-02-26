@@ -11,10 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.latenightrunners.adapter.DatingAdapter
 import com.example.latenightrunners.databinding.SwipeFragmentBinding
 import com.example.latenightrunners.firestore.UserModel
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.Direction
@@ -80,34 +77,27 @@ class SwipeFragment: Fragment() {
 
     private lateinit var list : ArrayList<UserModel>
     private fun getData() {
-        FirebaseDatabase.getInstance().getReference("users")
-            .addValueEventListener(object: ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d("shubh", "onDataChange: ${snapshot.toString()}")
-                    if (snapshot.exists()){
-                        list = arrayListOf()
-                        for (data in snapshot.children){
-                            val model = data.getValue(UserModel::class.java)
-                            list.add(model!!)
-
-                        }
-
-                        init()
-
-                        binding.cardStackView.layoutManager = manager
-                        binding.cardStackView.itemAnimator = DefaultItemAnimator()
-                        binding.cardStackView.adapter = DatingAdapter(requireContext(),list )
-
-                    }else{
-                        Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-                    }
+        val firestore = FirebaseFirestore.getInstance()
+        firestore.collection("users")
+            .get()
+            .addOnSuccessListener { documents ->
+                list = ArrayList()
+                for (document in documents) {
+                    val userModel = document.toObject(UserModel::class.java)
+                    list.add(userModel)
                 }
+                init()
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(requireContext(),error.message,Toast.LENGTH_SHORT).show()
-                }
-            })
+                binding.cardStackView.layoutManager = manager
+                binding.cardStackView.itemAnimator = DefaultItemAnimator()
+                binding.cardStackView.adapter = DatingAdapter(requireContext(), list)
+            }
+            .addOnFailureListener { exception ->
+                Log.e("SwipeFragment", "Error getting documents: ", exception)
+                Toast.makeText(requireContext(), "Failed to retrieve data", Toast.LENGTH_SHORT).show()
+            }
     }
+
 
 
 }
