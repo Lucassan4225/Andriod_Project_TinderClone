@@ -19,9 +19,6 @@
             android:name=".PictureActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
@@ -32,9 +29,6 @@
             android:exported="false" />
         <activity
             android:name=".BDayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NameSetUpActivity"
             android:exported="false" />
         <activity
             android:name=".NameSetUpActivity"

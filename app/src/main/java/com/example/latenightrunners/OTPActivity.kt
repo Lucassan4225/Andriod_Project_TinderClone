@@ -486,8 +486,7 @@ class OTPActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = task.result?.user
-                    // Proceed to NameSetUpActivity
-                    navigateToNameSetUpActivity()
+                    navigateToSetUpActivity()
                 } else {
                     // Sign in failed, display a message and update the UI
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -502,8 +501,8 @@ class OTPActivity : AppCompatActivity() {
             }
     }
 
-    private fun navigateToNameSetUpActivity() {
-        val intent = Intent(this, NameSetUpActivity::class.java)
+    private fun navigateToSetUpActivity() {
+        val intent = Intent(this, GenderActivity::class.java)
         startActivity(intent)
         finish() // Finish the current activity to prevent going back to it
     }
