@@ -142,10 +142,17 @@ import java.util.*
 
 class BDayActivity : AppCompatActivity() {
     private val view: ActivityBdayBinding by lazy { ActivityBdayBinding.inflate(layoutInflater) }
+    private var gender: String? = null
+    private var interestedGender: String? = null
+    private var name: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
+        gender = intent.getStringExtra("gender")
+        interestedGender = intent.getStringExtra("interestedGender")
+        name = intent.getStringExtra("name")
+
 
         view.btnLoginPh.setOnClickListener {
             val birthdayString = view.editTextDate.text.toString()
@@ -154,6 +161,9 @@ class BDayActivity : AppCompatActivity() {
             val intent = Intent(this, PictureActivity::class.java).apply {
                 putExtra("birthday", birthdayString)
                 putExtra("age", age.toString())
+                putExtra("name", name)
+                putExtra("interestedGender", interestedGender)
+                putExtra("gender", gender)
             }
             startActivity(intent)
         }

@@ -38,10 +38,12 @@ import com.example.latenightrunners.databinding.ActivityGenderInterestBinding
 
 class GenderInterestActivity : AppCompatActivity() {
     private val view: ActivityGenderInterestBinding by lazy { ActivityGenderInterestBinding.inflate(layoutInflater) }
+    private var gender: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
+        gender = intent.getStringExtra("gender")
 
         view.btnIMen.setOnClickListener {
             startPictureActivity("Men")
@@ -59,6 +61,7 @@ class GenderInterestActivity : AppCompatActivity() {
     private fun startPictureActivity(interestedGender: String) {
         val intent = Intent(this, NameSetUpActivity::class.java).apply {
             putExtra("interestedGender", interestedGender)
+            putExtra("gender", gender)
         }
         startActivity(intent)
     }

@@ -92,15 +92,21 @@ import com.example.latenightrunners.databinding.ActivityNameSetUpBinding
 
 class NameSetUpActivity : AppCompatActivity() {
     private val view: ActivityNameSetUpBinding by lazy { ActivityNameSetUpBinding.inflate(layoutInflater) }
+    private var gender: String? = null
+    private var interestedGender: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
+        gender = intent.getStringExtra("gender")
+        interestedGender = intent.getStringExtra("interestedGender")
 
         view.btnNext2.setOnClickListener {
             val name = view.editTextText.text.toString()
             val intent = Intent(this, BDayActivity::class.java).apply {
                 putExtra("name", name)
+                putExtra("interestedGender", interestedGender)
+                putExtra("gender", gender)
             }
             startActivity(intent)
         }

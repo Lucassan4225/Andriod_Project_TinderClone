@@ -80,27 +80,27 @@ class PictureActivity : AppCompatActivity() {
             // Handle case where data is missing
             Toast.makeText(this, "Some data is missing. Cannot save to Firestore.", Toast.LENGTH_SHORT).show()
             val nullVariable = "unkown"
-            if (interestedGender == null ) {
-                val nullVariable = "interestedGender"
-                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            if (gender == null ){
-                val nullVariable = "gender"
-                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT).show()
-            }
-
-
-
-
-            if (name == null){
-                val nullVariable ="name"
-                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT).show()
-
-
-                // Display toast
-
-            }
+//            if (interestedGender == null ) {
+//                val nullVariable = "interestedGender"
+//                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT)
+//                    .show()
+//            }
+//            if (gender == null ){
+//                val nullVariable = "gender"
+//                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT).show()
+//            }
+//
+//
+//
+//
+//            if (name == null){
+//                val nullVariable ="name"
+//                Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT).show()
+//
+//
+//                // Display toast
+//
+//            }
             if (birthday == null){
                 val nullVariable = "birthday"
                 Toast.makeText(applicationContext, "$nullVariable is null", Toast.LENGTH_SHORT).show()
