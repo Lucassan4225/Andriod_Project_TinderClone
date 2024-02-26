@@ -171,7 +171,7 @@ class PictureActivity : AppCompatActivity() {
             FirestoreUtil.saveData("users", userId, userData,
                 onSuccess = {
                     // Handle success, for example, show a success message
-                    println("Data saved successfully to Firestore")
+                    Toast.makeText(this, "Profile Updated.", Toast.LENGTH_SHORT).show()
                     // Navigate to the next activity after data is saved
                     val intent = Intent(this, MainNavigationActivity::class.java)
                     startActivity(intent)
@@ -190,6 +190,7 @@ class PictureActivity : AppCompatActivity() {
                 onFailure = { e ->
                     // Handle failure, if needed
                     Toast.makeText(this, "Error saving image to Firestore: $e", Toast.LENGTH_SHORT).show()
+
                 }
             )
         } else {

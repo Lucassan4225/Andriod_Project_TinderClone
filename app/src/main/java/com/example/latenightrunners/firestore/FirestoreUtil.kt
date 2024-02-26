@@ -109,6 +109,18 @@ object FirestoreUtil {
             onFailure(exception)
         }
     }
+    fun getProfileImageUri(userId: String, onSuccess: (String?) -> Unit, onFailure: (Exception) -> Unit) {
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                val imageUrl = document.getString("profile_image_url")
+                onSuccess(imageUrl)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
 
     fun getUserId(): String {
         // Get the current user from Firebase Authentication
