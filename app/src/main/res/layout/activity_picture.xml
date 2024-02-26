@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/plus" />
 
     <Button
-        android:id="@+id/btnNext3"
+        android:id="@+id/btnNextToMain"
         android:layout_width="280sp"
         android:layout_height="wrap_content"
         android:backgroundTint="#AEB0B2"
