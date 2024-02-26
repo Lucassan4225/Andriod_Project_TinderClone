@@ -16,10 +16,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/textView17"
@@ -51,10 +51,13 @@
         android:id="@+id/addImage"
         android:layout_width="24dp"
         android:layout_height="27dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginBottom="536dp"
+        android:layout_marginBottom="436dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintStart_toStartOf="@+id/ivShowAddedProfile"
+        app:layout_constraintTop_toTopOf="@+id/ivShowAddedProfile"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/plus" />
 
     <Button
