@@ -34,7 +34,7 @@
             android:name=".NameSetUpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainNavigationActivity"
             android:exported="false" />
         <activity
             android:name=".GenderInterestActivity"
@@ -43,7 +43,7 @@
             android:name=".GenderActivity"
             android:exported="false" />
         <activity
-            android:name=".MainNavigationActivity"
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

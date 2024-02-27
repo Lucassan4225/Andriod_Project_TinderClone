@@ -1,19 +1,23 @@
-package com.example.latenightrunners.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latenightrunners.databinding.ItemUserLayoutBinding
-import com.example.latenightrunners.firestore.UserModel
+import com.google.firebase.firestore.QueryDocumentSnapshot
 
-class DatingAdapter(val context : Context, val list : ArrayList<UserModel>): RecyclerView.Adapter<DatingAdapter.DatingViewHolder>() {
+class DatingAdapter(
+    val context: Context,
+    val list: ArrayList<QueryDocumentSnapshot>,
+    imageMap: HashMap<String, String>
+): RecyclerView.Adapter<DatingAdapter.DatingViewHolder>() {
+
     inner class DatingViewHolder(val binding: ItemUserLayoutBinding)
-        :RecyclerView.ViewHolder(binding.root)
+        : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DatingViewHolder {
-
         return DatingViewHolder(ItemUserLayoutBinding.inflate(LayoutInflater.from(context),parent,false))
     }
 
@@ -22,10 +26,31 @@ class DatingAdapter(val context : Context, val list : ArrayList<UserModel>): Rec
     }
 
     override fun onBindViewHolder(holder: DatingViewHolder, position: Int) {
+        val user = list[position].data // Assuming your document contains user data
 
-        holder.binding.swipeUserName.text = list[position].name
-        holder.binding.swipeUserAge.text = list[position].age
+        // Set user name and age
+        holder.binding.swipeUserName.text = user?.get("name").toString()
+        holder.binding.swipeUserAge.text = user?.get("age").toString()
 
-        Glide.with(context).load(list[position].image).into(holder.binding.userImage)
+        // Load user image using Glide
+        val userId = list[position].id
+        loadImageUrl(userId) { imageUrl ->
+            Glide.with(context).load(imageUrl).into(holder.binding.userImage)
+        }
     }
+
+    private fun loadImageUrl(userId: String, onComplete: (String?) -> Unit) {
+        FirestoreUtil.getProfileImageUri(userId,
+            onSuccess = { imageUrl ->
+                onComplete(imageUrl)
+            },
+            onFailure = { exception ->
+                Log.e("DatingAdapter", "Error loading image URL: $exception")
+                onComplete(null)
+            }
+        )
+    }
+
+
 }
+

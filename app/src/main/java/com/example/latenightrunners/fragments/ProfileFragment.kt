@@ -47,7 +47,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.latenightrunners.EditProfileActivity
 import com.example.latenightrunners.databinding.ProfileFragmentBinding
-import com.example.latenightrunners.firestore.FirestoreUtil
+
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {

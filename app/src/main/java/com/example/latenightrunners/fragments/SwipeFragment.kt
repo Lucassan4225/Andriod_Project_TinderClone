@@ -1,5 +1,7 @@
 package com.example.latenightrunners.fragments
 
+import DatingAdapter
+import FirestoreUtil
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,64 +10,47 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.example.latenightrunners.adapter.DatingAdapter
 import com.example.latenightrunners.databinding.SwipeFragmentBinding
-import com.example.latenightrunners.firestore.UserModel
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.Direction
 
-class SwipeFragment: Fragment() {
+class SwipeFragment : Fragment() {
     private lateinit var binding: SwipeFragmentBinding
     private lateinit var manager: CardStackLayoutManager
+    private lateinit var adapter: DatingAdapter
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-
-        binding = SwipeFragmentBinding.inflate(layoutInflater)
-
-
-
-        getData()
-
+        binding = SwipeFragmentBinding.inflate(inflater, container, false)
         return binding.root
+    }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+        getData()
     }
 
     private fun init() {
-        manager = CardStackLayoutManager(requireContext(), object: CardStackListener{
-            override fun onCardDragging(direction: Direction?, ratio: Float) {
-
-            }
+        manager = CardStackLayoutManager(requireContext(), object : CardStackListener {
+            override fun onCardDragging(direction: Direction?, ratio: Float) {}
 
             override fun onCardSwiped(direction: Direction?) {
-
-                if (manager!!.topPosition == list.size){
-                    Toast.makeText(requireContext(),"This is last card",Toast.LENGTH_SHORT).show()
+                if (manager.topPosition == adapter.itemCount) {
+                    Toast.makeText(requireContext(), "This is the last card", Toast.LENGTH_SHORT).show()
                 }
-
             }
 
-            override fun onCardRewound() {
+            override fun onCardRewound() {}
 
-            }
+            override fun onCardCanceled() {}
 
-            override fun onCardCanceled() {
+            override fun onCardAppeared(view: View?, position: Int) {}
 
-            }
-
-            override fun onCardAppeared(view: View?, position: Int) {
-
-            }
-
-            override fun onCardDisappeared(view: View?, position: Int) {
-
-            }
-
+            override fun onCardDisappeared(view: View?, position: Int) {}
         })
 
         manager.setVisibleCount(3)
@@ -73,31 +58,51 @@ class SwipeFragment: Fragment() {
         manager.setScaleInterval(0.8f)
         manager.setMaxDegree(20.0f)
         manager.setDirections(Direction.HORIZONTAL)
+
+        binding.cardStackView.layoutManager = manager
+        binding.cardStackView.itemAnimator = DefaultItemAnimator()
     }
 
-    private lateinit var list : ArrayList<UserModel>
     private fun getData() {
-        val firestore = FirebaseFirestore.getInstance()
-        firestore.collection("users")
+        FirestoreUtil.db.collection("users")
             .get()
-            .addOnSuccessListener { documents ->
-                list = ArrayList()
-                for (document in documents) {
-                    val userModel = document.toObject(UserModel::class.java)
-                    list.add(userModel)
-                }
-                init()
+            .addOnSuccessListener { userDocuments ->
+                val userList = ArrayList<QueryDocumentSnapshot>()
 
-                binding.cardStackView.layoutManager = manager
-                binding.cardStackView.itemAnimator = DefaultItemAnimator()
-                binding.cardStackView.adapter = DatingAdapter(requireContext(), list)
+                for (userDocument in userDocuments) {
+                    userList.add(userDocument)
+                }
+
+                FirestoreUtil.db.collection("images")
+                    .get()
+                    .addOnSuccessListener { imageDocuments ->
+                        val imageMap = HashMap<String, String>()
+
+                        for (imageDocument in imageDocuments) {
+                            val userId = imageDocument.id // Use document ID instead of getString("userId")
+                            val imageUrl = imageDocument.getString("image_url")
+
+                            if (userId != null && imageUrl != null) {
+                                imageMap[userId] = imageUrl
+                            }
+                        }
+
+                        // Pass both user and image data to the adapter
+                        adapter = DatingAdapter(requireContext(), userList, imageMap)
+                        binding.cardStackView.adapter = adapter
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e("SwipeFragment", "Error getting images: ", exception)
+                        Toast.makeText(requireContext(), "Failed to retrieve image data", Toast.LENGTH_SHORT).show()
+                    }
             }
             .addOnFailureListener { exception ->
-                Log.e("SwipeFragment", "Error getting documents: ", exception)
-                Toast.makeText(requireContext(), "Failed to retrieve data", Toast.LENGTH_SHORT).show()
+                Log.e("SwipeFragment", "Error getting users: ", exception)
+                Toast.makeText(requireContext(), "Failed to retrieve user data", Toast.LENGTH_SHORT).show()
             }
+
     }
 
-
-
 }
+
+
