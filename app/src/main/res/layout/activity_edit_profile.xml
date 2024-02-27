@@ -22,16 +22,19 @@
         android:textStyle="bold" />
 
     <!-- Done Button -->
+
     <Button
         android:id="@+id/buttonDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="-7dp"
+        android:backgroundTint="#FDF6FE"
         android:text="Done"
-        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <ScrollView
@@ -49,9 +52,10 @@
 
             <!-- Media Title -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:background="#D8D8D8"
+                android:padding="12sp"
                 android:text="MEDIA"
                 android:textColor="#000000"
                 android:textSize="22sp"
@@ -60,15 +64,15 @@
             <!-- Media ImageView -->
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="149dp"
+                android:layout_width="285dp"
+                android:layout_height="330dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12sp"
                 android:text="ABOUT ME"
                 android:textSize="22sp"
@@ -86,8 +90,8 @@
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12sp"
                 android:text="INTEREST"
                 android:textSize="22sp"
@@ -105,8 +109,8 @@
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12sp"
                 android:text="HEIGHT"
                 android:textSize="22sp"
@@ -124,8 +128,8 @@
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12sp"
                 android:text="LANGUAGE I KNOW"
                 android:textSize="22sp"
@@ -143,8 +147,8 @@
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12sp"
                 android:text="MORE ABOUT ME"
                 android:textSize="22sp"
@@ -210,8 +214,8 @@
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#EEF3F6"
+                android:layout_height="match_parent"
+                android:background="#D8D8D8"
                 android:padding="12dp"
                 android:text="LIFESTYLE"
                 android:textSize="22dp"

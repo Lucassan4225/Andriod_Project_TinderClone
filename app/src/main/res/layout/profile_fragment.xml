@@ -7,6 +7,17 @@
     android:background="#F5F7FD">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civProfile"
+        android:layout_width="183dp"
+        android:layout_height="180dp"
+        android:src="@drawable/img_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/EditButton"
         android:layout_width="86dp"
         android:layout_height="70dp"
@@ -18,17 +29,6 @@
         app:layout_constraintStart_toStartOf="@+id/civProfile"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.302" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civProfile"
-        android:layout_width="183dp"
-        android:layout_height="180dp"
-        android:src="@drawable/img_4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
 
     <ImageView
         android:id="@+id/imageView3"
