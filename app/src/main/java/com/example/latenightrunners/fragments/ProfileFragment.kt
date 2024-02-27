@@ -37,6 +37,7 @@
 //}
 package com.example.latenightrunners.fragments
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -44,6 +45,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.example.latenightrunners.EditProfileActivity
 import com.example.latenightrunners.databinding.ProfileFragmentBinding
 import com.example.latenightrunners.firestore.FirestoreUtil
 import com.squareup.picasso.Picasso
@@ -78,6 +80,10 @@ class ProfileFragment : Fragment() {
         // Launch image selection when civProfile is clicked
         view.civProfile.setOnClickListener {
             selectImage.launch("image/*")
+        }
+        view.EditButton.setOnClickListener {
+            val intent= Intent(context, EditProfileActivity::class.java)
+            startActivity(intent)
         }
 
         return view.root
