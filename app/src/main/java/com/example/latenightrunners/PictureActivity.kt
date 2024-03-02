@@ -315,7 +315,7 @@ class PictureActivity : AppCompatActivity() {
     private var age: String? = null
     private var imageUri: Uri? = null
     private var minAgePre: String = "18"
-    private var maxAgePre: String = "100"
+    private var maxAgePre: String = "70"
     private var distancePre: String = "100"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

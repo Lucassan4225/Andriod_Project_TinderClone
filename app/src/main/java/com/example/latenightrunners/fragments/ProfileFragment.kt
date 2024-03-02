@@ -322,9 +322,42 @@ import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment() {
     private lateinit var view: ProfileFragmentBinding
     private var imageUri: Uri? = null
+//    private val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+//        imageUri = uri
+//        view.civProfile.setImageURI(imageUri)
+//    }
     private val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-        imageUri = uri
-        view.civProfile.setImageURI(imageUri)
+        // Save the selected image URI to Firestore
+        val userId = FirestoreUtil.getUserId()
+        if (uri != null) {
+            FirestoreUtil.saveImage("images", userId, uri, "profile_image",
+                onSuccess = {
+                    // After saving the image, load it immediately
+                    loadImage(userId)
+                },
+                onFailure = { exception ->
+                    // Handle failure, if needed
+                }
+            )
+        }
+    }
+    private fun loadImage(userId: String) {
+        FirestoreUtil.getProfileImageUri(
+            userId,
+            onSuccess = { imageUrl ->
+                // Load the image using Picasso library
+                if (!imageUrl.isNullOrEmpty()) {
+                    Picasso.get().load(imageUrl).into(view.civProfile)
+                } else {
+                    // If there is no image URL available, you can load a default image here
+                    // For example:
+                    // Picasso.get().load(R.drawable.default_profile_image).into(view.civProfile)
+                }
+            },
+            onFailure = { exception ->
+                // Handle failure, if needed
+            }
+        )
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -365,4 +398,5 @@ class ProfileFragment : Fragment() {
         }
         return view.root
     }
+
 }

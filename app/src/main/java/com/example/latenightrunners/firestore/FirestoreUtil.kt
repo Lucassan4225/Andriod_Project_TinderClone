@@ -56,7 +56,6 @@ package com.example.latenightrunners.firestore////package com.example.latenightr
 ////    }
 ////
 ////}
-////package com.example.latenightrunners.firestore
 ////
 ////import android.annotation.SuppressLint
 ////import android.net.Uri
