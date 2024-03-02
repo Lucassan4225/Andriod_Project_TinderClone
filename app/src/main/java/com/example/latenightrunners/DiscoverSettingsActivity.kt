@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.latenightrunners.firestore.FirestoreUtil
 import com.google.android.material.slider.RangeSlider
 import com.google.android.material.slider.Slider
 
