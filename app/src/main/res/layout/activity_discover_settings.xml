@@ -123,7 +123,7 @@
                 android:backgroundTint="#F6F6F6"
                 android:progressBackgroundTint="@android:color/holo_red_light"
                 android:valueFrom="18"
-                android:valueTo="100"
+                android:valueTo="70"
                 app:thumbColor="@color/white"
                 app:trackColorActive="@android:color/holo_red_light"
                 app:values="@array/rangeSlider"

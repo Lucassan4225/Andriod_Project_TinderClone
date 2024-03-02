@@ -1,5 +1,4 @@
 package com.example.latenightrunners.fragments
-
 import com.example.latenightrunners.adapter.DatingAdapter
 import com.example.latenightrunners.firestore.FirestoreUtil
 import android.content.Intent
@@ -13,16 +12,18 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.latenightrunners.DiscoverSettingsActivity
 import com.example.latenightrunners.databinding.SwipeFragmentBinding
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.Direction
-
 class SwipeFragment : Fragment() {
     private lateinit var binding: SwipeFragmentBinding
     private lateinit var manager: CardStackLayoutManager
     private lateinit var adapter: DatingAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -44,24 +45,27 @@ class SwipeFragment : Fragment() {
     private fun init() {
         manager = CardStackLayoutManager(requireContext(), object : CardStackListener {
             override fun onCardDragging(direction: Direction?, ratio: Float) {}
-
             override fun onCardSwiped(direction: Direction?) {
                 if (manager.topPosition == adapter.itemCount) {
-                    Toast.makeText(requireContext(), "This is the last card", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "This is the last card", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
-                    // Get the current user's ID
+// Get the current user's ID
                     val userId = FirestoreUtil.getUserId()
-
-                    // Update user's matching status based on swipe direction
+// Update user's matching status based on swipe direction
                     if (direction == Direction.Right) {
                         FirestoreUtil.updateUserMatchingStatus(userId, true,
                             onSuccess = {
-                                // Add the image of the swiped user to the MatchFragment
-                                addImageToMatchFragment(userId)
+// Add the image of the swiped user to the MatchFragment
+// addImageToMatchFragment(userId)
                             },
                             onFailure = { exception ->
-                                // Handle failure
-                                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error updating user matching status", exception)
+// Handle failure
+                                Log.e(
+                                    "com.example.latenightrunners.fragments.SwipeFragment",
+                                    "Error updating user matching status",
+                                    exception
+                                )
                             }
                         )
                     }
@@ -91,62 +95,95 @@ class SwipeFragment : Fragment() {
                 fetchUsers(interestedGender)
             },
             onFailure = { exception ->
-                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting interested gender: ", exception)
-                Toast.makeText(requireContext(), "Failed to retrieve interested gender", Toast.LENGTH_SHORT).show()
+                Log.e(
+                    "com.example.latenightrunners.fragments.SwipeFragment",
+                    "Error getting interested gender: ",
+                    exception
+                )
+                Toast.makeText(
+                    requireContext(),
+                    "Failed to retrieve interested gender",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
     }
 
     private fun fetchUsers(interestedGender: String?) {
-        val usersCollection = if (interestedGender != null && (interestedGender == "Men" || interestedGender == "Women")) {
-            FirestoreUtil.db.collection("users")
-                .whereEqualTo("gender", interestedGender)
-        } else {
-            FirestoreUtil.db.collection("users")
-        }
-
-        usersCollection.get()
-            .addOnSuccessListener { userDocuments ->
-                val userList = ArrayList<QueryDocumentSnapshot>()
-                for (userDocument in userDocuments) {
-                    userList.add(userDocument)
-                }
-
-                FirestoreUtil.db.collection("images")
-                    .get()
-                    .addOnSuccessListener { imageDocuments ->
-                        val imageMap = HashMap<String, String>()
-                        for (imageDocument in imageDocuments) {
-                            val userId = imageDocument.id
-                            val imageUrl = imageDocument.getString("image_url")
-                            if (userId != null && imageUrl != null) {
-                                imageMap[userId] = imageUrl
-                            }
+        val currentUserId = FirestoreUtil.getUserId()
+// Retrieve user age preferences
+        FirestoreUtil.getUserAgePreferences(currentUserId,
+            onSuccess = { minAgePre, maxAgePre ->
+                val usersCollection =
+                    if (interestedGender != null && (interestedGender == "Men" || interestedGender == "Women")) {
+                        FirestoreUtil.db.collection("users") // Exclude current user
+                            .whereEqualTo("gender", interestedGender)
+                            .whereGreaterThanOrEqualTo(
+                                "age",
+                                minAgePre
+                            ) // Filter users with age greater than or equal to minAgePre
+                            .whereLessThanOrEqualTo(
+                                "age",
+                                maxAgePre
+                            ) // Filter users with age less than or equal to maxAgePre
+                    } else {
+                        FirestoreUtil.db.collection("users")// Exclude current user
+                            .whereGreaterThanOrEqualTo(
+                                "age",
+                                minAgePre
+                            ) // Filter users with age greater than or equal to minAgePre
+                            .whereLessThanOrEqualTo(
+                                "age",
+                                maxAgePre
+                            ) // Filter users with age less than or equal to maxAgePre
+                    }
+                usersCollection.get()
+                    .addOnSuccessListener { userDocuments ->
+                        val userList = ArrayList<QueryDocumentSnapshot>()
+                        for (userDocument in userDocuments) {
+                            userList.add(userDocument)
                         }
-                        adapter = DatingAdapter(requireContext(), userList, imageMap)
-                        binding.cardStackView.adapter = adapter
+// Fetch image documents separately
+                        FirestoreUtil.db.collection("images")
+                            .get()
+                            .addOnSuccessListener { imageDocuments ->
+                                val imageMap = HashMap<String, String>()
+                                for (imageDocument in imageDocuments) {
+                                    val userId = imageDocument.id
+                                    val imageUrl = imageDocument.getString("image_url")
+                                    if (userId != null && imageUrl != null) {
+                                        imageMap[userId] = imageUrl
+                                    }
+                                }
+// Set up the adapter with fetched data
+                                adapter = DatingAdapter(requireContext(), userList, imageMap)
+                                binding.cardStackView.adapter = adapter
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.e("SwipeFragment", "Error getting images: ", exception)
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Failed to retrieve image data",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                     }
                     .addOnFailureListener { exception ->
-                        Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting images: ", exception)
-                        Toast.makeText(requireContext(), "Failed to retrieve image data", Toast.LENGTH_SHORT).show()
+                        Log.e("SwipeFragment", "Error getting users: ", exception)
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to retrieve user data",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting users: ", exception)
-                Toast.makeText(requireContext(), "Failed to retrieve user data", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun addImageToMatchFragment(userId: String) {
-        FirestoreUtil.getProfileImageUri(userId,
-            onSuccess = { imageUrl ->
-                // Update the RecyclerView in the MatchFragment with the new image URL
-                val matchFragment = parentFragmentManager.findFragmentByTag("MatchFragment") as MatchFragment?
-                matchFragment?.updateRecyclerView(imageUrl)
             },
             onFailure = { exception ->
-                // Handle failure
-                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting profile image URI", exception)
+                Log.e("SwipeFragment", "Error getting age preferences: ", exception)
+                Toast.makeText(
+                    requireContext(),
+                    "Failed to retrieve age preferences",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
     }
