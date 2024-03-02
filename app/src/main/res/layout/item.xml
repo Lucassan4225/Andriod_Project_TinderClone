@@ -13,9 +13,10 @@
         <ImageView
             android:id="@+id/userImage"
             android:layout_width="175dp"
-            android:layout_height="170dp"
+            android:layout_height="175dp"
             android:layout_gravity="center_horizontal"
             android:paddingRight="12sp"
+            android:paddingBottom="12sp"
             android:scaleType="centerCrop"
             android:src="@drawable/card" />
     </LinearLayout>

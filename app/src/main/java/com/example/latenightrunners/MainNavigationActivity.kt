@@ -1,13 +1,13 @@
 package com.example.latenightrunners
 
-import com.example.latenightrunners.fragments.MatchFragment
+
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.latenightrunners.databinding.ActivityMainNavigationBinding
-
+import com.example.latenightrunners.fragments.MatchFragment
 import com.example.latenightrunners.fragments.ProfileFragment
 import com.example.latenightrunners.fragments.SwipeFragment
 import com.google.firebase.auth.FirebaseAuth
