@@ -68,20 +68,20 @@
         app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="@+id/btnGMen"
         app:layout_constraintTop_toBottomOf="@+id/btnGMen"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.88" />
 
-    <Button
-        android:id="@+id/btnLogGg"
-        android:layout_width="280sp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#E6EBEE"
-        android:text="Next"
-        android:textColor="#7D8694"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbGender"
-        app:layout_constraintVertical_bias="0.428" />
+<!--    <Button-->
+<!--        android:id="@+id/btnLogGg"-->
+<!--        android:layout_width="280sp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="#E6EBEE"-->
+<!--        android:text="Next"-->
+<!--        android:textColor="#7D8694"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cbGender"-->
+<!--        app:layout_constraintVertical_bias="0.428" />-->
 
     <ProgressBar
         android:id="@+id/progressBar2"

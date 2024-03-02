@@ -276,4 +276,36 @@ object FirestoreUtil {
                 onFailure(exception)
             }
     }
+    fun getCurrentUserInterestedGender(onSuccess: (String?) -> Unit, onFailure: (Exception) -> Unit) {
+        // Get the current user's ID
+        val userId = getUserId()
+
+        // Retrieve the interestedGender field from the user's document
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+                // Retrieve the interestedGender field value
+                val interestedGender = documentSnapshot.getString("interestedGender")
+                onSuccess(interestedGender)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+    fun getUserAgePreferences(userId: String, onSuccess: (minAgePre: String, maxAgePre: String) -> Unit, onFailure: (Exception) -> Unit) {
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+                val minAgePre = documentSnapshot.getString("minAgePre") ?: "18"
+                val maxAgePre = documentSnapshot.getString("maxAgePre") ?: "100"
+                onSuccess(minAgePre, maxAgePre)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+
+
 }

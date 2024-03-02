@@ -21,10 +21,10 @@
             android:id="@+id/imageView3"
             android:layout_width="94dp"
             android:layout_height="36dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.06"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/bell"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.782"
+            app:layout_constraintHorizontal_bias="0.765"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,13 +43,14 @@
             android:id="@+id/icon_configuration"
             android:layout_width="46dp"
             android:layout_height="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:src="@drawable/configuration"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.956"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:onClick="onConfigurationIconClicked"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

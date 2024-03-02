@@ -53,6 +53,19 @@
         app:strokeColor="#C3C9CB"
         app:strokeWidth="2dp" />
 
+    <!--    <Button-->
+<!--        android:id="@+id/btnNext2"-->
+<!--        android:layout_width="280sp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="368dp"-->
+<!--        android:backgroundTint="#E6EBEE"-->
+<!--        android:text="Next"-->
+<!--        android:textColor="#7D8694"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnIMen" />-->
+
     <CheckBox
         android:id="@+id/cbGender"
         android:layout_width="wrap_content"
@@ -62,25 +75,12 @@
         android:textColor="#393737"
         android:textColorHint="#393737"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnNext2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIMen"
-        app:layout_constraintVertical_bias="0.965" />
-
-    <Button
-        android:id="@+id/btnNext2"
-        android:layout_width="280sp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:backgroundTint="#E6EBEE"
-        android:text="Next"
-        android:textColor="#7D8694"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIMen" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIMen"
+        app:layout_constraintVertical_bias="0.885" />
 
     <ImageButton
         android:id="@+id/ibtnBack2"
