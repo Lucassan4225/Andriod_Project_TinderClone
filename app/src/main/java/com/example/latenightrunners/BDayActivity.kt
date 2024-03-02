@@ -4,7 +4,7 @@
 ////import android.os.Bundle
 ////import androidx.appcompat.app.AppCompatActivity
 ////import com.example.latenightrunners.databinding.ActivityBdayBinding
-////import com.example.latenightrunners.firestore.FirestoreUtil
+////import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 ////import java.text.SimpleDateFormat
 ////import java.util.*
 ////
@@ -32,7 +32,7 @@
 ////                "age" to age.toString()
 ////                // Add other attributes as needed
 ////            )
-////            FirestoreUtil.saveData("users", userData,
+////            com.example.latenightrunners.firestore.FirestoreUtil.saveData("users", userData,
 ////                onSuccess = {
 ////                    // On success, navigate to the next activity
 ////                    val intent = Intent(this, MainNavigationActivity::class.java)
@@ -66,7 +66,7 @@
 //import android.os.Bundle
 //import androidx.appcompat.app.AppCompatActivity
 //import com.example.latenightrunners.databinding.ActivityBdayBinding
-//import com.example.latenightrunners.firestore.FirestoreUtil
+//import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 //import java.text.SimpleDateFormat
 //import java.util.*
 //
@@ -98,7 +98,7 @@
 //            )
 //
 //            // Save data with user ID as document ID
-//            FirestoreUtil.saveData("users", userId, userData,
+//            com.example.latenightrunners.firestore.FirestoreUtil.saveData("users", userId, userData,
 //                onSuccess = {
 //                    // On success, navigate to the next activity
 //                    val intent = Intent(this, MainNavigationActivity::class.java)

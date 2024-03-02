@@ -4,7 +4,7 @@
 ////import androidx.appcompat.app.AppCompatActivity
 ////import android.os.Bundle
 ////import com.example.latenightrunners.databinding.ActivityNameSetUpBinding
-////import com.example.latenightrunners.firestore.FirestoreUtil
+////import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 ////
 ////
 ////class NameSetUpActivity : AppCompatActivity() {
@@ -20,7 +20,7 @@
 ////                "name" to name
 ////                // Add other attributes as needed
 ////            )
-////            FirestoreUtil.saveData("users", userData,
+////            com.example.latenightrunners.firestore.FirestoreUtil.saveData("users", userData,
 ////                onSuccess = {
 ////                    // Handle success, for example, navigate to the next activity
 ////                    val intent = Intent(this, BDayActivity::class.java)
@@ -42,7 +42,7 @@
 //import androidx.appcompat.app.AppCompatActivity
 //import android.os.Bundle
 //import com.example.latenightrunners.databinding.ActivityNameSetUpBinding
-//import com.example.latenightrunners.firestore.FirestoreUtil
+//import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 //
 //class NameSetUpActivity : AppCompatActivity() {
 //    private val view: ActivityNameSetUpBinding by lazy { ActivityNameSetUpBinding.inflate(layoutInflater) }
@@ -63,7 +63,7 @@
 //            )
 //
 //            // Save data with user ID as document ID
-//            FirestoreUtil.saveData("users", userId, userData,
+//            com.example.latenightrunners.firestore.FirestoreUtil.saveData("users", userId, userData,
 //                onSuccess = {
 //                    // Handle success, for example, navigate to the next activity
 //                    val intent = Intent(this, BDayActivity::class.java)

@@ -1,4 +1,4 @@
-////package com.example.latenightrunners.firestore
+package com.example.latenightrunners.firestore////package com.example.latenightrunners.firestore
 ////
 ////import android.annotation.SuppressLint
 ////import android.net.Uri
@@ -7,7 +7,7 @@
 ////import com.google.firebase.storage.FirebaseStorage
 ////import java.util.*
 ////
-////object FirestoreUtil {
+////object com.example.latenightrunners.firestore.FirestoreUtil {
 ////    @SuppressLint("StaticFieldLeak")
 ////    private val db = FirebaseFirestore.getInstance()
 ////    private val storage = FirebaseStorage.getInstance()
@@ -65,7 +65,7 @@
 ////import com.google.firebase.storage.FirebaseStorage
 ////import java.util.*
 ////
-////object FirestoreUtil {
+////object com.example.latenightrunners.firestore.FirestoreUtil {
 ////    @SuppressLint("StaticFieldLeak")
 ////    private val db = FirebaseFirestore.getInstance()
 ////    private val storage = FirebaseStorage.getInstance()
@@ -136,7 +136,7 @@
 //import com.google.firebase.storage.FirebaseStorage
 //import java.util.UUID
 //
-//object FirestoreUtil {
+//object com.example.latenightrunners.firestore.FirestoreUtil {
 //    val db = FirebaseFirestore.getInstance()
 //    private val storage = FirebaseStorage.getInstance()
 //
@@ -202,6 +202,7 @@
 //}
 //
 import android.net.Uri
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -306,6 +307,37 @@ object FirestoreUtil {
                 onFailure(exception)
             }
     }
-
+    fun updateUserMatchingStatus(userId: String, isMatched: Boolean, onSuccess: () -> Unit, onFailure: (Exception) -> Unit) {
+        db.collection("users")
+            .document(userId)
+            .update("isMatched", isMatched)
+            .addOnSuccessListener {
+                Log.d("FirestoreUtil", "User matching status updated successfully")
+                onSuccess()
+            }
+            .addOnFailureListener { e ->
+                Log.e("FirestoreUtil", "Error updating user matching status", e)
+                onFailure(e)
+            }
+    }
+    fun getMatchedUsers(
+        onSuccess: (List<Map<String, Any>>) -> Unit,
+        onFailure: (Exception) -> Unit
+    ) {
+        db.collection("users")
+            .whereEqualTo("isMatched", true)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val matchedUsers = mutableListOf<Map<String, Any>>()
+                for (document in querySnapshot.documents) {
+                    val userData = document.data
+                    userData?.let { matchedUsers.add(it) }
+                }
+                onSuccess(matchedUsers)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
 
 }
