@@ -203,7 +203,10 @@ package com.example.latenightrunners.firestore////package com.example.latenightr
 //
 import android.net.Uri
 import android.util.Log
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.util.UUID
@@ -334,6 +337,47 @@ object FirestoreUtil {
                     userData?.let { matchedUsers.add(it) }
                 }
                 onSuccess(matchedUsers)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+    fun getMatchedUsersImages(
+        onSuccess: (List<String>) -> Unit,
+        onFailure: (Exception) -> Unit
+    ) {
+        db.collection("users")
+            .whereEqualTo("isMatched", true)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val matchedUserIds = mutableListOf<String>()
+                for (document in querySnapshot.documents) {
+                    matchedUserIds.add(document.id)
+                }
+                onSuccess(matchedUserIds)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+
+    fun getImagesForUserIds(userIds: List<String>, onSuccess: (List<String>) -> Unit, onFailure: (Exception) -> Unit) {
+        val imageUrls = mutableListOf<String>()
+        val tasks = mutableListOf<Task<DocumentSnapshot>>()
+        for (userId in userIds) {
+            val task = db.collection("images").document(userId).get()
+            tasks.add(task)
+        }
+
+        Tasks.whenAllSuccess<DocumentSnapshot>(tasks)
+            .addOnSuccessListener { snapshots ->
+                for (snapshot in snapshots) {
+                    val imageUrl = snapshot.getString("image_url")
+                    if (imageUrl != null) {
+                        imageUrls.add(imageUrl)
+                    }
+                }
+                onSuccess(imageUrls)
             }
             .addOnFailureListener { exception ->
                 onFailure(exception)

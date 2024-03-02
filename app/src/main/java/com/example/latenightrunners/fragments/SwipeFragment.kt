@@ -56,21 +56,12 @@ class SwipeFragment : Fragment() {
                     if (direction == Direction.Right) {
                         FirestoreUtil.updateUserMatchingStatus(userId, true,
                             onSuccess = {
-                                // Handle success if needed
+                                // Add the image of the swiped user to the MatchFragment
+                                addImageToMatchFragment(userId)
                             },
                             onFailure = { exception ->
                                 // Handle failure
-                                Log.e("SwipeFragment", "Error updating user matching status", exception)
-                            }
-                        )
-                    } else {
-                        FirestoreUtil.updateUserMatchingStatus(userId, false,
-                            onSuccess = {
-                                // Handle success if needed
-                            },
-                            onFailure = { exception ->
-                                // Handle failure
-                                Log.e("SwipeFragment", "Error updating user matching status", exception)
+                                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error updating user matching status", exception)
                             }
                         )
                     }
@@ -89,6 +80,9 @@ class SwipeFragment : Fragment() {
         manager.setDirections(Direction.HORIZONTAL)
         binding.cardStackView.layoutManager = manager
         binding.cardStackView.itemAnimator = DefaultItemAnimator()
+        binding.iconConfiguration.setOnClickListener {
+            onConfigurationIconClicked(it)
+        }
     }
 
     private fun getData() {
@@ -97,7 +91,7 @@ class SwipeFragment : Fragment() {
                 fetchUsers(interestedGender)
             },
             onFailure = { exception ->
-                Log.e("SwipeFragment", "Error getting interested gender: ", exception)
+                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting interested gender: ", exception)
                 Toast.makeText(requireContext(), "Failed to retrieve interested gender", Toast.LENGTH_SHORT).show()
             }
         )
@@ -133,13 +127,27 @@ class SwipeFragment : Fragment() {
                         binding.cardStackView.adapter = adapter
                     }
                     .addOnFailureListener { exception ->
-                        Log.e("SwipeFragment", "Error getting images: ", exception)
+                        Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting images: ", exception)
                         Toast.makeText(requireContext(), "Failed to retrieve image data", Toast.LENGTH_SHORT).show()
                     }
             }
             .addOnFailureListener { exception ->
-                Log.e("SwipeFragment", "Error getting users: ", exception)
+                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting users: ", exception)
                 Toast.makeText(requireContext(), "Failed to retrieve user data", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun addImageToMatchFragment(userId: String) {
+        FirestoreUtil.getProfileImageUri(userId,
+            onSuccess = { imageUrl ->
+                // Update the RecyclerView in the MatchFragment with the new image URL
+                val matchFragment = parentFragmentManager.findFragmentByTag("MatchFragment") as MatchFragment?
+                matchFragment?.updateRecyclerView(imageUrl)
+            },
+            onFailure = { exception ->
+                // Handle failure
+                Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error getting profile image URI", exception)
+            }
+        )
     }
 }
