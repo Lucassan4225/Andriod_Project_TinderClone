@@ -47,7 +47,7 @@
 ////import androidx.fragment.app.Fragment
 ////import com.example.latenightrunners.EditProfileActivity
 ////import com.example.latenightrunners.databinding.ProfileFragmentBinding
-////import com.example.latenightrunners.firestore.FirestoreUtil
+////import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 ////import com.squareup.picasso.Picasso
 ////
 ////class ProfileFragment : Fragment() {
@@ -66,8 +66,8 @@
 ////        view = ProfileFragmentBinding.inflate(inflater, container, false)
 ////
 ////        // Retrieve user's image from Firestore and load it into civProfile
-////        val userId = FirestoreUtil.getUserId()
-////        FirestoreUtil.getProfileImageUri(userId,
+////        val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
+////        com.example.latenightrunners.firestore.FirestoreUtil.getProfileImageUri(userId,
 ////            onSuccess = { imageUrl ->
 ////                // Load the image using Picasso library
 ////                Picasso.get().load(imageUrl).into(view.civProfile)
@@ -101,7 +101,7 @@
 ////import androidx.fragment.app.Fragment
 ////import com.example.latenightrunners.EditProfileActivity
 ////import com.example.latenightrunners.databinding.ProfileFragmentBinding
-////import com.example.latenightrunners.firestore.FirestoreUtil
+////import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 ////import com.squareup.picasso.Picasso
 ////
 ////class ProfileFragment : Fragment() {
@@ -125,8 +125,8 @@
 ////        super.onViewCreated(view, savedInstanceState)
 ////
 ////        // Retrieve user's image from Firestore and load it into civProfile
-////        val userId = FirestoreUtil.getUserId()
-////        FirestoreUtil.getProfileImageUri(userId,
+////        val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
+////        com.example.latenightrunners.firestore.FirestoreUtil.getProfileImageUri(userId,
 ////            onSuccess = { imageUrl ->
 ////                // Load the image using Picasso library
 ////                Picasso.get().load(imageUrl).into(fragmentBinding.civProfile)
@@ -160,16 +160,16 @@
 ////import androidx.fragment.app.Fragment
 ////import com.example.latenightrunners.EditProfileActivity
 ////import com.example.latenightrunners.databinding.ProfileFragmentBinding
-////import com.example.latenightrunners.firestore.FirestoreUtil
+////import com.example.latenightrunners.firestore.com.example.latenightrunners.firestore.FirestoreUtil
 ////import com.squareup.picasso.Picasso
 ////
 ////class ProfileFragment : Fragment() {
 ////    private lateinit var fragmentBinding: ProfileFragmentBinding
 ////    private val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
 ////        // Save the edited image URI to Firestore
-////        val userId = FirestoreUtil.getUserId()
+////        val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
 ////        if (uri != null) {
-////            FirestoreUtil.saveImage("users", userId, uri, "profile_image",
+////            com.example.latenightrunners.firestore.FirestoreUtil.saveImage("users", userId, uri, "profile_image",
 ////                onSuccess = {
 ////                    // Load the edited image into civProfile
 ////                    loadImage(userId)
@@ -194,7 +194,7 @@
 ////        super.onViewCreated(view, savedInstanceState)
 ////
 ////        // Load the profile image into civProfile
-////        val userId = FirestoreUtil.getUserId()
+////        val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
 ////        loadImage(userId)
 ////
 ////        // Launch image selection when civProfile is clicked
@@ -209,7 +209,7 @@
 ////    }
 ////
 ////    private fun loadImage(userId: String) {
-////        FirestoreUtil.getProfileImageUri(userId,
+////        com.example.latenightrunners.firestore.FirestoreUtil.getProfileImageUri(userId,
 ////            onSuccess = { imageUrl ->
 ////                // Load the image using Picasso library
 ////                Picasso.get().load(imageUrl).into(fragmentBinding.civProfile)
@@ -245,8 +245,8 @@
 //    private val selectImage =
 //        registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
 //            uri?.let { imageUri ->
-//                val userId = FirestoreUtil.getUserId()
-//                FirestoreUtil.saveImage(
+//                val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
+//                com.example.latenightrunners.firestore.FirestoreUtil.saveImage(
 //                    "users", userId, imageUri, "profile_image",
 //                    onSuccess = {
 //                        // After saving the image, load it immediately
@@ -271,7 +271,7 @@
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 //
-//        val userId = FirestoreUtil.getUserId()
+//        val userId = com.example.latenightrunners.firestore.FirestoreUtil.getUserId()
 //        loadImage(userId)
 //
 //        fragmentBinding.civProfile.setOnClickListener {
@@ -285,7 +285,7 @@
 //    }
 //
 //    private fun loadImage(userId: String) {
-//        FirestoreUtil.getProfileImageUri(
+//        com.example.latenightrunners.firestore.FirestoreUtil.getProfileImageUri(
 //            userId,
 //            onSuccess = { imageUrl ->
 //                // Load the image using Picasso library
@@ -317,6 +317,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.latenightrunners.EditProfileActivity
 import com.example.latenightrunners.databinding.ProfileFragmentBinding
+import com.example.latenightrunners.firestore.FirestoreUtil
 import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment() {
     private lateinit var view: ProfileFragmentBinding

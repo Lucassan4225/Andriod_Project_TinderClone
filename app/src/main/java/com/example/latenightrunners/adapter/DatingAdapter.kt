@@ -1,4 +1,4 @@
-//
+package com.example.latenightrunners.adapter//
 //import android.content.Context
 //import android.util.Log
 //import android.view.LayoutInflater
@@ -8,11 +8,11 @@
 //import com.example.latenightrunners.databinding.ItemUserLayoutBinding
 //import com.google.firebase.firestore.QueryDocumentSnapshot
 //
-//class DatingAdapter(
+//class com.example.latenightrunners.adapter.DatingAdapter(
 //    val context: Context,
 //    val list: ArrayList<QueryDocumentSnapshot>,
 //    imageMap: HashMap<String, String>
-//): RecyclerView.Adapter<DatingAdapter.DatingViewHolder>() {
+//): RecyclerView.Adapter<com.example.latenightrunners.adapter.DatingAdapter.DatingViewHolder>() {
 //
 //    inner class DatingViewHolder(val binding: ItemUserLayoutBinding)
 //        : RecyclerView.ViewHolder(binding.root)
@@ -40,12 +40,12 @@
 //    }
 //
 //    private fun loadImageUrl(userId: String, onComplete: (String?) -> Unit) {
-//        FirestoreUtil.getProfileImageUri(userId,
+//        com.example.latenightrunners.firestore.FirestoreUtil.getProfileImageUri(userId,
 //            onSuccess = { imageUrl ->
 //                onComplete(imageUrl)
 //            },
 //            onFailure = { exception ->
-//                Log.e("DatingAdapter", "Error loading image URL: $exception")
+//                Log.e("com.example.latenightrunners.adapter.DatingAdapter", "Error loading image URL: $exception")
 //                onComplete(null)
 //            }
 //        )
@@ -60,6 +60,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latenightrunners.databinding.ItemUserLayoutBinding
+import com.example.latenightrunners.firestore.FirestoreUtil
 import com.google.firebase.firestore.QueryDocumentSnapshot
 class DatingAdapter(
     val context: Context,
@@ -91,7 +92,7 @@ class DatingAdapter(
                 onComplete(imageUrl)
             },
             onFailure = { exception ->
-                Log.e("DatingAdapter", "Error loading image URL: $exception")
+                Log.e("com.example.latenightrunners.adapter.DatingAdapter", "Error loading image URL: $exception")
                 onComplete(null)
             }
         )
