@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.latenightrunners.databinding.ActivityEditProfileBinding
 import com.example.latenightrunners.firestore.FirestoreUtil
+import com.squareup.picasso.Picasso
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var view: ActivityEditProfileBinding
@@ -33,6 +34,26 @@ class EditProfileActivity : AppCompatActivity() {
         view.buttonDone.setOnClickListener {
             updateUserDataAndNavigateBack()
         }
+
+        // Load user's image
+        loadUserProfileImage()
+    }
+
+    private fun loadUserProfileImage() {
+        // Get the current user ID
+        val userId = FirestoreUtil.getUserId()
+
+        // Retrieve user's image URL from Firestore
+        FirestoreUtil.getProfileImageUri(userId,
+            onSuccess = { imageUrl ->
+                // Load the image using Picasso library
+                Picasso.get().load(imageUrl).into(view.editProfileImage)
+            },
+            onFailure = { exception ->
+                // Handle failure to retrieve image URL, if needed
+                Log.e("EditProfileActivity", "Error loading user image", exception)
+            }
+        )
     }
 
     private fun updateUserDataAndNavigateBack() {
