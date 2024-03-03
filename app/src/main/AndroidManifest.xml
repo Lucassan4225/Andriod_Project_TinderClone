@@ -31,6 +31,9 @@
             android:name=".PhoneInputActivity"
             android:exported="false" />
         <activity
+            android:name=".AddInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".BDayActivity"
             android:exported="false" />
         <activity

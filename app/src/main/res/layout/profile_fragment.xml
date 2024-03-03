@@ -45,14 +45,14 @@
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="4dp"
         android:text="Name"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/civProfile"
         app:layout_constraintTop_toBottomOf="@+id/civProfile"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="31dp"
@@ -70,14 +70,14 @@
         android:id="@+id/tvProfileAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:text="Age"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvProfileName"
         app:layout_constraintTop_toBottomOf="@+id/civProfile"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <ImageView
         android:id="@+id/imageView10"

@@ -215,7 +215,7 @@ object FirestoreUtil {
     fun saveUserData(userId: String, userData: Map<String, Any>, onSuccess: () -> Unit, onFailure: (Exception) -> Unit) {
         db.collection("users")
             .document(userId)
-            .set(userData)
+            .update(userData)
             .addOnSuccessListener {
                 onSuccess()
             }

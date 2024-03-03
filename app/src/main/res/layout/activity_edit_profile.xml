@@ -18,24 +18,11 @@
         android:paddingBottom="30sp"
         android:text="Edit Info"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <!-- Done Button -->
-
-    <Button
-        android:id="@+id/buttonDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="-7dp"
-        android:backgroundTint="#FDF6FE"
-        android:text="Done"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,27 +41,30 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="MEDIA"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <!-- Media ImageView -->
             <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="181dp"
-                android:layout_height="214dp"
+                android:id="@+id/editProfileImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingTop="12sp"
+                android:paddingBottom="12sp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="ABOUT ME"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -82,18 +72,21 @@
                 android:id="@+id/EditProfileBio"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
+                android:background="#293539"
                 android:ems="10"
                 android:hint="Describe Yourself"
                 android:inputType="text"
-                android:padding="12sp" />
+                android:padding="12sp"
+                android:textColor="#F3F1F1" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="INTEREST"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -101,18 +94,21 @@
                 android:id="@+id/EditProfileInterest"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
+                android:background="#293539"
                 android:ems="10"
                 android:hint="Enter your Interest"
                 android:inputType="text"
-                android:padding="12sp" />
+                android:padding="12sp"
+                android:textColor="#F3F1F1" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="HEIGHT"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -120,18 +116,21 @@
                 android:id="@+id/EditProfileHeight"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
+                android:background="#293539"
                 android:ems="10"
                 android:hint="cm"
                 android:inputType="text"
-                android:padding="12sp" />
+                android:padding="12sp"
+                android:textColor="#F3F1F1" />
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="LANGUAGE I KNOW"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -139,18 +138,21 @@
                 android:id="@+id/EditProfileLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
+                android:background="#293539"
                 android:ems="10"
                 android:hint="Enter the language you know"
                 android:inputType="text"
-                android:padding="12sp" />
+                android:padding="12sp"
+                android:textColor="#F3F1F1" />
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12sp"
                 android:text="MORE ABOUT ME"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -169,8 +171,10 @@
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:padding="15sp"
                         android:text="Zodiac"
+                        android:textColor="#FFFEFE"
                         android:textSize="20sp" />
 
                     <EditText
@@ -178,10 +182,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:ems="10"
                         android:hint="> Enter your Zodiac"
                         android:inputType="text"
-                        android:padding="15sp" />
+                        android:padding="15sp"
+                        android:textColor="#F3F2F2" />
 
                 </LinearLayout>
 
@@ -195,8 +201,10 @@
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:padding="15sp"
                         android:text="Blood type"
+                        android:textColor="#FFFEFE"
                         android:textSize="20sp" />
 
                     <EditText
@@ -204,10 +212,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:ems="10"
                         android:hint="> A/B/AB/O"
                         android:inputType="text"
-                        android:padding="15sp" />
+                        android:padding="15sp"
+                        android:textColor="#F3F2F2" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -215,9 +225,10 @@
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#D8D8D8"
+                android:background="#141218"
                 android:padding="12dp"
                 android:text="LIFESTYLE"
+                android:textColor="#FFFFFF"
                 android:textSize="22dp"
                 android:textStyle="bold" />
 
@@ -236,8 +247,10 @@
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:padding="15sp"
                         android:text="Workout"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <EditText
@@ -245,10 +258,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:ems="10"
                         android:hint="> Yes/No/Often"
                         android:inputType="text"
-                        android:padding="15sp" />
+                        android:padding="15sp"
+                        android:textColor="#F3F2F2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -261,8 +276,10 @@
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:padding="15sp"
                         android:text="Sleeping Habits"
+                        android:textColor="#FFFEFE"
                         android:textSize="20sp" />
 
                     <EditText
@@ -270,16 +287,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#293539"
                         android:ems="10"
                         android:hint="> EarlyBird/NightOwl"
                         android:inputType="text"
-                        android:padding="15sp" />
+                        android:padding="15sp"
+                        android:textColor="#F3F2F2" />
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
+
+    <Button
+        android:id="@+id/buttonDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="#FDF6FE"
+        android:text="Done"
+        android:textColor="#2E82E8"
+        android:textSize="26dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/bottomButtons"

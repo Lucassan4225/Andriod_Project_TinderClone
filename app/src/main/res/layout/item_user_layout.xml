@@ -34,9 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="20dp"
+            android:padding="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
@@ -58,8 +59,8 @@
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="20dp"
                 android:src="@drawable/star"
-                app:layout_constraintTop_toTopOf="@id/swipeNo"
-                app:layout_constraintBottom_toBottomOf="@id/swipeNo" />
+                app:layout_constraintBottom_toBottomOf="@id/swipeNo"
+                app:layout_constraintTop_toTopOf="@id/swipeNo" />
 
             <Space
                 android:id="@+id/rightSpace"
@@ -73,6 +74,17 @@
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="28dp"
                 android:src="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/UpButton"
+                android:layout_width="41dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="2"
+                android:paddingRight="5dp"
+                android:rotation="90"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_circle_left_24" />
 
         </LinearLayout>
 
