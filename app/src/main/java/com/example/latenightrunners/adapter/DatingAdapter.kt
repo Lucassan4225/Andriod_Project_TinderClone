@@ -78,18 +78,18 @@ class DatingAdapter(
         return list.size
     }
     override fun onBindViewHolder(holder: DatingViewHolder, position: Int) {
-        val user = list[position].data // Assuming your document contains user data
-// Set user name and age
+        val user = list[position].data
+
         holder.binding.swipeUserName.text = user?.get("name").toString()
         holder.binding.swipeUserAge.text = user?.get("age").toString()
-// Load user image using Glide
+
         val userId = list[position].id
         loadImageUrl(userId) { imageUrl ->
             Glide.with(context).load(imageUrl).into(holder.binding.userImage)
         }
         holder.binding.UpButton.setOnClickListener {
             try {
-                // Move to AddInfoActivity
+
                 val intent = Intent(holder.itemView.context, AddInfoActivity::class.java)
                 holder.itemView.context.startActivity(intent)
             } catch (e: Exception) {

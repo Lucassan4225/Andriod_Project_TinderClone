@@ -27,7 +27,7 @@
 //            startActivity(intent)
 //        }
 //    }
-//    //Choice: Intrested gender(Men,Women,Everyone)
+//
 //}
 package com.example.latenightrunners
 

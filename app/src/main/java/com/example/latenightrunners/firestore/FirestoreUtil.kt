@@ -262,9 +262,9 @@ object FirestoreUtil {
             }
     }
     fun getUserId(): String {
-// Get the current user from Firebase Authentication
+
         val currentUser = FirebaseAuth.getInstance().currentUser
-// Return the user ID if the user is authenticated, or return "unknownuser" if no user is found
+
         return currentUser?.uid ?: "unknownuser"
     }
     fun getUserData(userId: String, onSuccess: (Map<String, Any>) -> Unit, onFailure: (Exception) -> Unit) {
@@ -272,7 +272,7 @@ object FirestoreUtil {
             .document(userId)
             .get()
             .addOnSuccessListener { document ->
-                val userData = document.data ?: mapOf() // Get user data or empty map if no data found
+                val userData = document.data ?: mapOf()
                 onSuccess(userData)
             }
             .addOnFailureListener { exception ->
@@ -280,15 +280,15 @@ object FirestoreUtil {
             }
     }
     fun getCurrentUserInterestedGender(onSuccess: (String?) -> Unit, onFailure: (Exception) -> Unit) {
-        // Get the current user's ID
+
         val userId = getUserId()
 
-        // Retrieve the interestedGender field from the user's document
+
         db.collection("users")
             .document(userId)
             .get()
             .addOnSuccessListener { documentSnapshot ->
-                // Retrieve the interestedGender field value
+
                 val interestedGender = documentSnapshot.getString("interestedGender")
                 onSuccess(interestedGender)
             }

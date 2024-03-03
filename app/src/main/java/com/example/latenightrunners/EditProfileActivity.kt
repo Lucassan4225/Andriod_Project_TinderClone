@@ -35,38 +35,38 @@ class EditProfileActivity : AppCompatActivity() {
             updateUserDataAndNavigateBack()
         }
 
-        // Load user's image
+
         loadUserProfileImage()
     }
 
     private fun loadUserProfileImage() {
-        // Get the current user ID
+
         val userId = FirestoreUtil.getUserId()
 
-        // Retrieve user's image URL from Firestore
+
         FirestoreUtil.getProfileImageUri(userId,
             onSuccess = { imageUrl ->
-                // Load the image using Picasso library
+
                 Picasso.get().load(imageUrl).into(view.editProfileImage)
             },
             onFailure = { exception ->
-                // Handle failure to retrieve image URL, if needed
+
                 Log.e("EditProfileActivity", "Error loading user image", exception)
             }
         )
     }
 
     private fun updateUserDataAndNavigateBack() {
-        // Get the current user ID
+
         val userId = FirestoreUtil.getUserId()
 
-        // Retrieve existing user data from Firestore
+
         FirestoreUtil.getUserData(userId,
             onSuccess = { userData ->
-                // Create a mutable map to hold the updated user data
+
                 val updatedUserData = userData.toMutableMap()
 
-                // Retrieve data from EditText fields and update the map
+
                 updateField(updatedUserData, R.id.EditProfileBio, "EditProfileBio")
                 updateField(updatedUserData, R.id.EditProfileInterest, "EditProfileInterest")
                 updateField(updatedUserData, R.id.EditProfileHeight, "EditProfileHeight")
@@ -75,28 +75,27 @@ class EditProfileActivity : AppCompatActivity() {
                 updateField(updatedUserData, R.id.EditProfileGym, "EditProfileGym")
                 updateField(updatedUserData, R.id.EditProfileSleep, "EditProfileSleep")
 
-                // Update user data in Firestore only if there are changes
+
                 if (updatedUserData != userData) {
                     FirestoreUtil.saveUserData(userId, updatedUserData,
                         onSuccess = {
-                            // Data updated successfully, navigate back to ProfileFragment
+
                             finish()
                         },
                         onFailure = { exception ->
-                            // Handle failure
+
                             Log.e("EditProfileActivity", "Error updating user data", exception)
-                            // You can show an error message or handle the failure as needed
+
                         }
                     )
                 } else {
-                    // No changes to update, simply navigate back to ProfileFragment
                     finish()
                 }
             },
             onFailure = { exception ->
-                // Handle failure to retrieve existing user data
+
                 Log.e("EditProfileActivity", "Error fetching user data", exception)
-                // You can show an error message or handle the failure as needed
+
             }
         )
     }

@@ -349,9 +349,9 @@ package com.example.latenightrunners
 //        override fun onVerificationFailed(e: FirebaseException) {
 //            Log.w(TAG, "onVerificationFailed", e)
 //            if (e is FirebaseAuthInvalidCredentialsException) {
-//                // Invalid request
+//
 //            } else {
-//                // Show a message and update the UI
+//
 //            }
 //        }
 //
@@ -368,16 +368,16 @@ package com.example.latenightrunners
 //        auth.signInWithCredential(credential)
 //            .addOnCompleteListener(this) { task ->
 //                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
+//
 //                    Log.d(TAG, "signInWithCredential:success")
 //                    val user = task.result?.user
-//                    // Proceed to NameSetUpActivity
+//
 //                    navigateToNameSetUpActivity()
 //                } else {
 //                    // Sign in failed, display a message and update the UI
 //                    Log.w(TAG, "signInWithCredential:failure", task.exception)
 //                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-//                        // The verification code entered was invalid
+//
 //                        Toast.makeText(this@OTPActivity, "Invalid OTP", Toast.LENGTH_SHORT).show()
 //                    }
 //                }
@@ -387,7 +387,7 @@ package com.example.latenightrunners
 //    private fun navigateToNameSetUpActivity() {
 //        val intent = Intent(this, NameSetUpActivity::class.java)
 //        startActivity(intent)
-//        finish() // Finish the current activity to prevent going back to it
+//        finish()
 //    }
 //
 //    companion object {
@@ -439,8 +439,6 @@ class OTPActivity : AppCompatActivity() {
 
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
-        // Handle back press, prevent going back to OTP screen after successful verification
-        // You can customize this behavior as needed
         Toast.makeText(this, "Back press disabled", Toast.LENGTH_SHORT).show()
     }
 
@@ -464,9 +462,9 @@ class OTPActivity : AppCompatActivity() {
         override fun onVerificationFailed(e: FirebaseException) {
             Log.w(TAG, "onVerificationFailed", e)
             if (e is FirebaseAuthInvalidCredentialsException) {
-                // Invalid request
+
             } else {
-                // Show a message and update the UI
+
             }
         }
 
@@ -483,18 +481,18 @@ class OTPActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+
                     Log.d(TAG, "signInWithCredential:success")
                     val user = task.result?.user
                     navigateToSetUpActivity()
                 } else {
-                    // Sign in failed, display a message and update the UI
+
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
+
                         Toast.makeText(this@OTPActivity, "Invalid OTP", Toast.LENGTH_SHORT).show()
                     } else {
-                        // Handle other sign-in failures
+
                         Toast.makeText(this@OTPActivity, "Sign-in failed", Toast.LENGTH_SHORT).show()
                     }
                 }
