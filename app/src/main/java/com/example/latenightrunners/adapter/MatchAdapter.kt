@@ -27,9 +27,9 @@ class MatchAdapter(private val userList: List<User>) :
 
     class MatchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User) {
-
+            // Load user image using Glide library
             Glide.with(itemView.context)
-                .load(user.image_url)
+                .load(user.image_url) // Make sure to use the correct field name
                 .apply(
                     RequestOptions()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)

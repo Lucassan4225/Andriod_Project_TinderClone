@@ -19,12 +19,12 @@ class DiscoverSettingsActivity : AppCompatActivity() {
         val sliderDistanceRange = findViewById<Slider>(R.id.sliderDistanceRange)
 
         arrowIcon.setOnClickListener {
-
+            // Get the values of age and distance preferences
             val minAgePre = seekBarAgeRange.values[0].toInt().toString()
             val maxAgePre = seekBarAgeRange.values[1].toInt().toString()
             val distance = sliderDistanceRange.value.toInt().toString()
 
-
+            // Save the preferences to Firestore
             savePreferencesToFirestore(minAgePre, maxAgePre, distance)
         }
     }

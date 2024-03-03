@@ -18,16 +18,16 @@ class AddInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_info)
 
-
+        // Initialize Firestore
         db = Firebase.firestore
 
-
+        // Retrieve user information and populate TextViews
         fetchUserData()
 
-
+        // Handle click on DownButton to move back to swipeFragment
         val downButton = findViewById<ImageView>(R.id.DownButton)
         downButton.setOnClickListener {
-
+            // Handle navigation back to swipeFragment
             finish()
         }
     }
@@ -38,10 +38,10 @@ class AddInfoActivity : AppCompatActivity() {
             .document(userId)
             .get()
             .addOnSuccessListener { documentSnapshot ->
-
+                // Retrieve user data
                 val userData = documentSnapshot.data
 
-
+                // Update TextViews with user data
                 userData?.let {
                     findViewById<TextView>(R.id.InfoBio).text = it["EditProfileBio"].toString()
                     findViewById<TextView>(R.id.InfoAge).text = it["EditProfileAge"].toString()
@@ -56,7 +56,8 @@ class AddInfoActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener { exception ->
-
+                // Handle failure
+                // For simplicity, you can log the error or display a toast to the user
             }
     }
 }

@@ -38,7 +38,7 @@ class MatchFragment : Fragment() {
 
 
 
-        fetchMatchedUsers()
+        fetchMatchedUsers() // Fetch matched users when the fragment is created
 
 
         return view
@@ -50,7 +50,7 @@ class MatchFragment : Fragment() {
                 loadMatchedUsersImages(userIds)
             },
             onFailure = { exception ->
-
+                // Handle failure
             }
         )
     }
@@ -64,6 +64,7 @@ class MatchFragment : Fragment() {
                 myAdapter.notifyDataSetChanged()
             },
             onFailure = { exception ->
+                // Handle failure
             }
         )
     }

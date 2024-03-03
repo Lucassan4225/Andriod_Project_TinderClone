@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- Edit Info Title -->
+
+    <!-- Scrollable Content -->
+
     <TextView
         android:id="@+id/textView30"
         android:layout_width="match_parent"
@@ -18,7 +22,7 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-
+    <!-- Done Button -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,6 +35,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Media Section -->
+
+            <!-- Media Title -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +48,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-
+            <!-- Media ImageView -->
             <ImageView
                 android:id="@+id/editProfileImage"
                 android:layout_width="match_parent"

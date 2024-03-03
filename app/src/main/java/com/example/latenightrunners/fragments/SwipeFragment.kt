@@ -37,7 +37,8 @@ class SwipeFragment : Fragment() {
         init()
     }
     fun onUpButtonClick(position: Int) {
-
+        // handle the click event for the UpButton
+        // You can perform the desired action here, such as moving to AddInfoActivity
         val intent = Intent(requireContext(), AddInfoActivity::class.java)
         startActivity(intent)
     }
@@ -53,16 +54,17 @@ class SwipeFragment : Fragment() {
                 if (manager.topPosition == adapter.itemCount) {
                     Toast.makeText(requireContext(), "This is the last card", Toast.LENGTH_SHORT).show()
                 } else {
-
+// Get the current user's ID
                     val userId = FirestoreUtil.getUserId()
-
+// Update user's matching status based on swipe direction
                     if (direction == Direction.Right) {
                         FirestoreUtil.updateUserMatchingStatus(userId, true,
                             onSuccess = {
-
+// Add the image of the swiped user to the MatchFragment
+// addImageToMatchFragment(userId)
                             },
                             onFailure = { exception ->
-
+// Handle failure
                                 Log.e("com.example.latenightrunners.fragments.SwipeFragment", "Error updating user matching status", exception)
                             }
                         )
@@ -113,14 +115,14 @@ class SwipeFragment : Fragment() {
         FirestoreUtil.getUserAgePreferences(currentUserId,
             onSuccess = { minAgePre, maxAgePre ->
                 val usersCollection = if (interestedGender != null && (interestedGender == "Men" || interestedGender == "Women")) {
-                    FirestoreUtil.db.collection("users")
+                    FirestoreUtil.db.collection("users") // Exclude current user
                         .whereEqualTo("gender", interestedGender)
-                        .whereGreaterThanOrEqualTo("age", minAgePre)
-                        .whereLessThanOrEqualTo("age", maxAgePre)
+                        .whereGreaterThanOrEqualTo("age", minAgePre) // Filter users with age greater than or equal to minAgePre
+                        .whereLessThanOrEqualTo("age", maxAgePre) // Filter users with age less than or equal to maxAgePre
                 } else {
-                    FirestoreUtil.db.collection("users")
-                        .whereGreaterThanOrEqualTo("age", minAgePre)
-                        .whereLessThanOrEqualTo("age", maxAgePre)
+                    FirestoreUtil.db.collection("users")// Exclude current user
+                        .whereGreaterThanOrEqualTo("age", minAgePre) // Filter users with age greater than or equal to minAgePre
+                        .whereLessThanOrEqualTo("age", maxAgePre) // Filter users with age less than or equal to maxAgePre
                 }
                 usersCollection.get()
                     .addOnSuccessListener { userDocuments ->
@@ -128,7 +130,7 @@ class SwipeFragment : Fragment() {
                         for (userDocument in userDocuments) {
                             userList.add(userDocument)
                         }
-
+// Fetch image documents separately
                         FirestoreUtil.db.collection("images")
                             .get()
                             .addOnSuccessListener { imageDocuments ->
@@ -140,7 +142,7 @@ class SwipeFragment : Fragment() {
                                         imageMap[userId] = imageUrl
                                     }
                                 }
-
+// Set up the adapter with fetched data
                                 adapter = DatingAdapter(requireContext(), userList, imageMap)
                                 binding.cardStackView.adapter = adapter
                             }

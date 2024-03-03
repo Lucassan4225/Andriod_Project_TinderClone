@@ -322,18 +322,21 @@ import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment() {
     private lateinit var view: ProfileFragmentBinding
     private var imageUri: Uri? = null
-
+//    private val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+//        imageUri = uri
+//        view.civProfile.setImageURI(imageUri)
+//    }
     private val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-
+        // Save the selected image URI to Firestore
         val userId = FirestoreUtil.getUserId()
         if (uri != null) {
             FirestoreUtil.saveImage("images", userId, uri, "profile_image",
                 onSuccess = {
-
+                    // After saving the image, load it immediately
                     loadImage(userId)
                 },
                 onFailure = { exception ->
-
+                    // Handle failure, if needed
                 }
             )
         }
@@ -342,15 +345,17 @@ class ProfileFragment : Fragment() {
         FirestoreUtil.getProfileImageUri(
             userId,
             onSuccess = { imageUrl ->
-
+                // Load the image using Picasso library
                 if (!imageUrl.isNullOrEmpty()) {
                     Picasso.get().load(imageUrl).into(view.civProfile)
                 } else {
-
+                    // If there is no image URL available, you can load a default image here
+                    // For example:
+                    // Picasso.get().load(R.drawable.default_profile_image).into(view.civProfile)
                 }
             },
             onFailure = { exception ->
-
+                // Handle failure, if needed
             }
         )
     }
@@ -360,30 +365,30 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         view = ProfileFragmentBinding.inflate(inflater, container, false)
-
+// Retrieve user's image from Firestore and load it into civProfile
         val userId = FirestoreUtil.getUserId()
         FirestoreUtil.getProfileImageUri(userId,
             onSuccess = { imageUrl ->
-
+// Load the image using Picasso library
                 Picasso.get().load(imageUrl).into(view.civProfile)
             },
             onFailure = { exception ->
-
+// Handle failure, if needed
             }
         )
         FirestoreUtil.getUserData(userId,
             onSuccess = { userData ->
-
+                // Display user's name and age
                 val name = userData["name"] as String?
                 val age = userData["age"] as String?
                 view.tvProfileName.text = name
                 view.tvProfileAge.text = age
             },
             onFailure = { exception ->
-
+                // Handle failure, if needed
             }
         )
-
+// Launch image selection when civProfile is clicked
         view.civProfile.setOnClickListener {
             selectImage.launch("image/*")
         }
